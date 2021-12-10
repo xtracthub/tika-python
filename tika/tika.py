@@ -104,7 +104,9 @@ Example usage as python client:
 
 """
 
-home_dir = "/Users/tylerskluzacek"
+# home_dir = "/Users/tylerskluzacek"
+home_dir = "/home/tskluzac"
+
 
 import sys, os, getopt, time, codecs, re
 try:
@@ -183,7 +185,8 @@ TikaServerLogFilePath = random_home_dir
 
 # TODO: TYLER
 # TikaServerJar = "/tika-tester/tika-server.jar"
-TikaServerJar = "/Users/tylerskluzacek/PycharmProjects/tika-python/tika-server-1.24-bin/tika-server.jar"
+# TikaServerJar = "/Users/tylerskluzacek/PycharmProjects/tika-python/tika-server-1.24-bin/tika-server.jar"
+TikaServerJar = "/tika-tester/tika-server.jar"
 # TikaServerJar = os.getenv('TIKA_SERVER_JAR')
 # if TikaServerJar is None:
 #     raise ValueError("NEED A TIKA_SERVER_JAR PATH")
