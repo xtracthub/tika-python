@@ -143,11 +143,18 @@ from os import walk
 import signal
 import io
 import ctypes
+from uuid import uuid4
 
 # TODO: TYLER
 # log_path = os.getenv('TIKA_LOG_PATH', tempfile.gettempdir())
-log_path = "/tika-tester"
-log_file = os.path.join(log_path, os.getenv('TIKA_LOG_FILE', 'tika.log'))
+# log_path = "/tika-tester"
+# log_file = os.path.join(log_path, os.getenv('TIKA_LOG_FILE', 'tika.log'))
+
+# TODO: Tyler: create lots of logs for every tika instance.
+random_home_dir = f"/home/tskluzac/tika-logs/{uuid4()}"
+os.makedirs(random_home_dir, exist_ok=True)
+log_file = f"{random_home_dir}/tika.log"
+
 
 # logFormatter = logging.Formatter("%(asctime)s [%(threadName)-12.12s] [%(levelname)-5.5s]  %(message)s")
 # log = logging.getLogger('tika.tika')
@@ -170,7 +177,7 @@ Windows = True if platform.system() == "Windows" else False
 TikaVersion = os.getenv('TIKA_VERSION', '1.24')
 TikaJarPath = os.getenv('TIKA_PATH', tempfile.gettempdir())
 TikaFilesPath = tempfile.gettempdir()
-TikaServerLogFilePath = log_path
+TikaServerLogFilePath = random_home_dir
 
 # TODO: TYLER
 TikaServerJar = "/tika-tester/tika-server.jar"
