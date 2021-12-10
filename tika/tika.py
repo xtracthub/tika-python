@@ -173,7 +173,7 @@ TikaFilesPath = tempfile.gettempdir()
 TikaServerLogFilePath = log_path
 
 # TODO: TYLER
-TikaServerJar = "file://tika-tester/tika-server.jar"
+TikaServerJar = "/tika-tester/tika-server.jar"
 # TikaServerJar = os.getenv('TIKA_SERVER_JAR')
 # if TikaServerJar is None:
 #     raise ValueError("NEED A TIKA_SERVER_JAR PATH")
@@ -589,7 +589,8 @@ def checkTikaServer(scheme="http", serverHost=ServerHost, port=Port, tikaServerJ
 
     urlp = urlparse(tikaServerJar)
     serverEndpoint = '%s://%s:%s' % (scheme, serverHost, port)
-    jarPath = os.path.join(TikaJarPath, 'tika-server.jar')
+    # jarPath = os.path.join(TikaJarPath, 'tika-server.jar')  todo TYLER
+    jarPath = "/tika-tester/tika-server.jar"
     if 'localhost' in serverEndpoint or '127.0.0.1' in serverEndpoint:
         alreadyRunning = checkPortIsOpen(serverHost, port)
 
