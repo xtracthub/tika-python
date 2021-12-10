@@ -104,6 +104,8 @@ Example usage as python client:
 
 """
 
+home_dir = "/Users/tylerskluzacek"
+
 import sys, os, getopt, time, codecs, re
 try:
     unicode_string = unicode 
@@ -151,7 +153,7 @@ from uuid import uuid4
 # log_file = os.path.join(log_path, os.getenv('TIKA_LOG_FILE', 'tika.log'))
 
 # TODO: Tyler: create lots of logs for every tika instance.
-random_home_dir = f"/home/tskluzac/tika-logs/{uuid4()}"
+random_home_dir = f"{home_dir}/tika-logs/{uuid4()}"
 os.makedirs(random_home_dir, exist_ok=True)
 log_file = f"{random_home_dir}/tika.log"
 
@@ -180,7 +182,8 @@ TikaFilesPath = tempfile.gettempdir()
 TikaServerLogFilePath = random_home_dir
 
 # TODO: TYLER
-TikaServerJar = "/tika-tester/tika-server.jar"
+# TikaServerJar = "/tika-tester/tika-server.jar"
+TikaServerJar = "/Users/tylerskluzacek/PycharmProjects/tika-python/tika-server-1.24-bin/tika-server.jar"
 # TikaServerJar = os.getenv('TIKA_SERVER_JAR')
 # if TikaServerJar is None:
 #     raise ValueError("NEED A TIKA_SERVER_JAR PATH")
@@ -597,7 +600,8 @@ def checkTikaServer(scheme="http", serverHost=ServerHost, port=Port, tikaServerJ
     urlp = urlparse(tikaServerJar)
     serverEndpoint = '%s://%s:%s' % (scheme, serverHost, port)
     # jarPath = os.path.join(TikaJarPath, 'tika-server.jar')  todo TYLER
-    jarPath = "/tika-tester/tika-server.jar"
+    # jarPath = "/tika-tester/tika-server.jar"
+    jarPath = tikaServerJar
     if 'localhost' in serverEndpoint or '127.0.0.1' in serverEndpoint:
         alreadyRunning = checkPortIsOpen(serverHost, port)
 
