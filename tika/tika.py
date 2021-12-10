@@ -173,7 +173,7 @@ TikaFilesPath = tempfile.gettempdir()
 TikaServerLogFilePath = log_path
 
 # TODO: TYLER
-TikaServerJar = "file://tika-tester/tika-server-1.24-bin/tika-server.jar"
+TikaServerJar = "file://tika-tester/tika-server.jar"
 # TikaServerJar = os.getenv('TIKA_SERVER_JAR')
 # if TikaServerJar is None:
 #     raise ValueError("NEED A TIKA_SERVER_JAR PATH")
