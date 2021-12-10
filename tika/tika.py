@@ -141,11 +141,12 @@ from subprocess import Popen
 from subprocess import STDOUT
 from os import walk
 import signal
-import logging
 import io
 import ctypes
 
-log_path = os.getenv('TIKA_LOG_PATH', tempfile.gettempdir())
+# TODO: TYLER
+# log_path = os.getenv('TIKA_LOG_PATH', tempfile.gettempdir())
+log_path = "/tika-tester"
 log_file = os.path.join(log_path, os.getenv('TIKA_LOG_FILE', 'tika.log'))
 
 # logFormatter = logging.Formatter("%(asctime)s [%(threadName)-12.12s] [%(levelname)-5.5s]  %(message)s")
@@ -171,9 +172,12 @@ TikaJarPath = os.getenv('TIKA_PATH', tempfile.gettempdir())
 TikaFilesPath = tempfile.gettempdir()
 TikaServerLogFilePath = log_path
 
-TikaServerJar = os.getenv('TIKA_SERVER_JAR')
-if TikaServerJar is None:
-    raise ValueError("NEED A TIKA_SERVER_JAR PATH")
+# TODO: TYLER
+TikaServerJar = "file://tika-tester/tika-server-1.24-bin/tika-server.jar"
+# TikaServerJar = os.getenv('TIKA_SERVER_JAR')
+# if TikaServerJar is None:
+#     raise ValueError("NEED A TIKA_SERVER_JAR PATH")
+
 
 ServerHost = "localhost"
 Port = "9998"
